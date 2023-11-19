@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import WeatherCard from './components/WeatherCard';
+
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+	<div className='w-[100%] h-[100vh] bg-slate-900 grid place-content-center'>
+		<h1 className='font-bold text-center capitalize text-white pb-3'>weather Broadcast</h1>
+		<WeatherCard/>
+	</div>
+	);
 }
 
 export default App;
