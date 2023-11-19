@@ -8,9 +8,14 @@ import image6 from '../images/storm.png'
 import image7 from '../images/temperature.png'
 import image8 from '../images/hot.png'
 import image9 from '../images/cloudy_2.png'
+import image14 from '../images/cloudy2.png'
 import image10 from '../images/cloudy_1.png'
+import image11 from '../images/clouds.png'
+import image12 from '../images/snow.png'
+import image13 from '../images/sunny.png'
 
-let images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10]
+
+let images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13,image14]
 
 
 
@@ -27,12 +32,7 @@ const toggleCordinate=()=>{
 	}
 
 
-
-
-
-
 const [weatherData, setWeatherData] = useState([])
-console.log(weatherData);
 const [Weatherimages, setWeatherimages] = useState(images[1])
 
 function getData(e) {
@@ -56,8 +56,13 @@ function getData(e) {
 
 					const response = await fetch(apiUrl);
 					const data = await response.json();
-					setWeatherData([data['main'].pressure, data['main'].humidity, data['main'].temp, data['main'].temp_max, data['wind'].speed, data['weather'][0].main, data['weather'][0].description])
-					console.log(data['weather'][0].main);
+					setWeatherData([
+						data['main'].pressure, data['main'].humidity,
+						data['main'].temp, data['main'].temp_max,
+						data['wind'].speed, data['weather'][0].main,
+						data['weather'][0].description,
+						data['sys'].country, data.name])
+
 					switch (data['weather'][0].description) {
 						case "broken clouds":
 							setWeatherimages(images[8])
@@ -68,14 +73,20 @@ function getData(e) {
 						case "light rain":
 							setWeatherimages(images[3])
 							break;
-						case "storm":
-							setWeatherimages(images[0])
+						case "thunderstorm":
+							setWeatherimages(images[5])
 							break;
 						case "overcast cloud":
-							setWeatherimages(images[0])
+							setWeatherimages(images[8])
+							break;
+						case "scattered clouds":
+							setWeatherimages(images[10])
 							break;
 						case "clear sky":
-							setWeatherimages(images[0])
+							setWeatherimages(images[12])
+							break;
+						case "light snow":
+							setWeatherimages(images[11])
 							break;
 						default:
 							break;
@@ -90,8 +101,21 @@ function getData(e) {
 
 					const response = await fetch(apiUrl);
 					const data = await response.json();
-					setWeatherData([data['main'].pressure, data['main'].humidity, data['main'].temp, data['main'].temp_max, data['wind'].speed, data['weather'][0].main, data['weather'][0].description])
-					console.log(data['weather'][0].main);
+					setWeatherData([
+						data['main'].pressure, data['main'].humidity,
+						 data['main'].temp, data['main'].temp_max,
+						  data['wind'].speed, data['weather'][0].main,
+						   data['weather'][0].description,
+						    data['sys'].country, data.name])
+					
+			
+
+
+
+
+
+
+
 					switch (data['weather'][0].description) {
 						case "broken clouds":
 							setWeatherimages(images[8])
@@ -102,14 +126,23 @@ function getData(e) {
 						case "light rain":
 							setWeatherimages(images[3])
 							break;
-						case "storm":
-							setWeatherimages(images[0])
+						case "sunny":
+							setWeatherimages(images[4])
+							break;
+						case "thunderstorm":
+							setWeatherimages(images[5])
 							break;
 						case "overcast cloud":
-							setWeatherimages(images[0])
+							setWeatherimages(images[8])
+							break;
+						case "scattered clouds":
+							setWeatherimages(images[10])
 							break;
 						case "clear sky":
-							setWeatherimages(images[0])
+							setWeatherimages(images[12])
+							break;
+						case "light snow":
+							setWeatherimages(images[11])
 							break;
 						default:
 							break;
@@ -132,14 +165,18 @@ const showOption=()=>{
 
   return (
 	  <div className='w-72  transition-all duration-1000 bg-[#0c0f2b] rounded-md flex flex-col items-center p-2 justify-evenly capitalize shadow-md shadow-[#0000004b]' >
-		  <div className='w-72 h-[100%]  rounded-md flex flex-col items-center p-2 justify-evenly'>
+		  <div className='w-72 h-[100%]  rounded-md flex flex-col items-center p-2 justify-evenly relative'>
+			<div className='absolute top-0 left-1 text-xs flex flex-row-reverse gap-2 font-semibold text-white'>
+				  <p>{weatherData[8]}</p>
+				  <p>{weatherData[7]} :</p>
+			</div>
 			  <div className='w-40 h-40 bg-[#00000060] rounded-full grid place-content-center text-white'>
 				  <div>
 					<img
 						  src={Weatherimages}
 						  alt='icons'
 						  width={80}
-						  className='animate-[wiggle_1s_ease-in-out_infinite]'
+						  className='animate-[wiggle_1s_ease-in-out_infinite] transition-all duration-1000'
 					/>
 				  </div>
 				  <p className='text-center relative'><em className='text-3xl font-semibold not-italic'>{weatherData[2]}</em> <sup className='text-[10px] absolute top-3'>0</sup></p>
