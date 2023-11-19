@@ -165,7 +165,7 @@ const showOption=()=>{
 
   return (
 	  <div className='w-[22rem]  transition-all duration-1000 bg-[#0c0f2b] rounded-md flex flex-col items-center p-2 justify-evenly capitalize shadow-md shadow-[#0000004b]' >
-		  <div className='w-[21rem] h-[100%]  rounded-md flex gap-5 flex-col items-center p-2 justify-evenly relative'>
+		  <div className='w-[100%] h-[100%]  rounded-md flex gap-5 flex-col items-center p-2 justify-evenly relative'>
 			<div className='absolute top-0 left-1 text-xs flex flex-row-reverse gap-2 font-semibold text-white'>
 				  <p>{weatherData[8]}</p>
 				  <p>{weatherData[7]} :</p>
