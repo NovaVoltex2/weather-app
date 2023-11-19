@@ -164,8 +164,8 @@ const showOption=()=>{
 }
 
   return (
-	  <div className='w-72  transition-all duration-1000 bg-[#0c0f2b] rounded-md flex flex-col items-center p-2 justify-evenly capitalize shadow-md shadow-[#0000004b]' >
-		  <div className='w-72 h-[100%]  rounded-md flex flex-col items-center p-2 justify-evenly relative'>
+	  <div className='w-[22rem]  transition-all duration-1000 bg-[#0c0f2b] rounded-md flex flex-col items-center p-2 justify-evenly capitalize shadow-md shadow-[#0000004b]' >
+		  <div className='w-[21rem] h-[100%]  rounded-md flex gap-5 flex-col items-center p-2 justify-evenly relative'>
 			<div className='absolute top-0 left-1 text-xs flex flex-row-reverse gap-2 font-semibold text-white'>
 				  <p>{weatherData[8]}</p>
 				  <p>{weatherData[7]} :</p>
@@ -208,8 +208,7 @@ const showOption=()=>{
 				  </div>
 			  </div>
 			  <div className='w-full flex justify-between rounded-md'>
-				  <button className='bg-black p-1 rounded-md text-sm capitalize font-medium px-2 text-white'>refresh</button>
-				  <button className='bg-blue-950 p-1 rounded-md text-sm capitalize font-medium px-2 text-white' onClick={showOption}>change Location</button>
+				  <button className='bg-blue-800 p-3 w-full rounded-md text-sm capitalize font-medium px-2 text-white' onClick={showOption}>change Location</button>
 			  </div>
 		</div>
 		  <div className={`${`absolute w-full h-full top-0 backdrop-blur-lg  transition-transform duration-1000`} ${show ? `translate-x-[-100rem]` : `translate-x-[0rem]`}`}>
